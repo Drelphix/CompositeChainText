@@ -19,10 +19,8 @@ public class WordParser implements TextComponentParser {
     @Override
     public void parse(TextComponent textComponent, String data) {
         char[] symbols = data.toCharArray();
-
         for (char symbol : symbols){
-            TextComponent symbolComponent = new Symbol(symbol);
-            textComponent.addTextComponent(symbolComponent);
+            textComponent.addTextComponent(new Symbol(symbol));
         }
     }
 }

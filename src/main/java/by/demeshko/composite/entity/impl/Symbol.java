@@ -25,4 +25,25 @@ public class Symbol implements TextComponent {
     public void CountSameWords() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Symbol symbol1 = (Symbol) o;
+
+        return symbol == symbol1.symbol;
+    }
+
+    @Override
+    public int hashCode() {
+        return symbol;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(symbol);
+    }
 }

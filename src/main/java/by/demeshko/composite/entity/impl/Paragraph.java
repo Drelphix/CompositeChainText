@@ -6,19 +6,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paragraph implements TextComponent {
-    private List<TextComponent> textComponents = new ArrayList<>();
+    private List<TextComponent> sentences = new ArrayList<>();
     @Override
     public boolean addTextComponent(TextComponent textComponent) {
-        return this.textComponents.add(textComponent);
+        return this.sentences.add(textComponent);
     }
 
     @Override
     public boolean removeTextComponent(TextComponent textComponent) {
-        return this.textComponents.remove(textComponent);
+        return this.sentences.remove(textComponent);
     }
 
     @Override
     public void CountSameWords(){
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Paragraph paragraph = (Paragraph) o;
+
+        return sentences != null ? sentences.equals(paragraph.sentences) : paragraph.sentences == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return sentences != null ? sentences.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "\\t" + sentences;
     }
 }

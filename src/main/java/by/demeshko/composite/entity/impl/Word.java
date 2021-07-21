@@ -22,4 +22,24 @@ public class Word implements TextComponent {
     public void CountSameWords() throws UnsupportedOperationException {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Word word = (Word) o;
+
+        return textComponents != null ? textComponents.equals(word.textComponents) : word.textComponents == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return textComponents != null ? textComponents.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return textComponents + "\\s";
+    }
 }
