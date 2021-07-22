@@ -6,7 +6,7 @@ import by.demeshko.composite.parser.TextComponentParser;
 
 public class SymbolParser implements TextComponentParser {
     @Override
-    public void setFirstParser(TextComponentParser textComponentParser) {
+    public void setNextParser(TextComponentParser textComponentParser) {
         throw new UnsupportedOperationException();
     }
 

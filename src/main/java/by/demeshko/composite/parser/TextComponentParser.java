@@ -4,7 +4,7 @@ import by.demeshko.composite.entity.TextComponent;
 
 public interface TextComponentParser {
 
-    public void setFirstParser(TextComponentParser textComponentParser);
+    public void setNextParser(TextComponentParser textComponentParser);
 
     public void parse(TextComponent textComponent, String data);
 }

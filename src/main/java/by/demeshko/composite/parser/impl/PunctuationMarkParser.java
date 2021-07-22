@@ -8,7 +8,7 @@ public class PunctuationMarkParser implements TextComponentParser {
     private final String PUNCTUATION_MARK_REGEX = "^(\\W)+$";
 
     @Override
-    public void setFirstParser(TextComponentParser textComponentParser) {
+    public void setNextParser(TextComponentParser textComponentParser) {
         throw new UnsupportedOperationException();
     }
 

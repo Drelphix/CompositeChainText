@@ -14,7 +14,7 @@ public class SentenceParser implements TextComponentParser {
     }
 
     @Override
-    public void setFirstParser(TextComponentParser textComponentParser) {
+    public void setNextParser(TextComponentParser textComponentParser) {
         this.nextParser = textComponentParser;
     }
 

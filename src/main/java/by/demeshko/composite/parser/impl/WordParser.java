@@ -8,23 +8,20 @@ import by.demeshko.composite.parser.TextComponentParser;
 
 public class WordParser implements TextComponentParser {
     private TextComponentParser nextParser;
-    private final String WORD_REGEX = "^\\w+";
 
     public WordParser(TextComponentParser nextParser) {
         this.nextParser = nextParser;
     }
 
     @Override
-    public void setFirstParser(TextComponentParser textComponentParser) {
+    public void setNextParser(TextComponentParser textComponentParser) {
        this.nextParser = textComponentParser;
     }
 
     @Override
     public void parse(TextComponent textComponent, String data) {
-        if(data.matches(WORD_REGEX)) {
             TextComponent wordComponent = new Word();
             textComponent.addTextComponent(wordComponent);
             this.nextParser.parse(wordComponent, data);
-        }
     }
 }
