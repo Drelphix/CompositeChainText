@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paragraph implements TextComponent {
-    private List<TextComponent> sentences = new ArrayList<>();
+    private final List<TextComponent> sentences = new ArrayList<>();
+
     @Override
     public boolean addTextComponent(TextComponent textComponent) {
         return this.sentences.add(textComponent);
@@ -39,6 +40,10 @@ public class Paragraph implements TextComponent {
 
     @Override
     public String toString() {
-        return "\\t" + sentences;
+        StringBuilder stringBuilder = new StringBuilder();
+        for(TextComponent sentence : sentences){
+            stringBuilder.append(sentence).append(" ");
+        }
+        return stringBuilder.toString();
     }
 }

@@ -12,16 +12,16 @@ import java.util.List;
 public class Lexeme implements TextComponent {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private List<TextComponent> textComponents = new ArrayList<>();
+    private List<TextComponent> words = new ArrayList<>();
 
     @Override
     public boolean addTextComponent(TextComponent textComponent) {
-        return this.textComponents.add(textComponent);
+        return this.words.add(textComponent);
     }
 
     @Override
     public boolean removeTextComponent(TextComponent textComponent) {
-        return this.textComponents.remove(textComponent);
+        return this.words.remove(textComponent);
     }
 
     @Override
@@ -36,11 +36,20 @@ public class Lexeme implements TextComponent {
 
         Lexeme lexeme = (Lexeme) o;
 
-        return textComponents != null ? textComponents.equals(lexeme.textComponents) : lexeme.textComponents == null;
+        return words != null ? words.equals(lexeme.words) : lexeme.words == null;
     }
 
     @Override
     public int hashCode() {
-        return textComponents != null ? textComponents.hashCode() : 0;
+        return words != null ? words.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder lexeme = new StringBuilder();
+        for (TextComponent textComponent : words){
+            lexeme.append(textComponent);
+        }
+        return lexeme.toString();
     }
 }

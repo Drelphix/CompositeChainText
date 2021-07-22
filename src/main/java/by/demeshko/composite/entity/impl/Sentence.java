@@ -7,15 +7,16 @@ import java.util.List;
 
 public class Sentence implements TextComponent {
 
-    private List<TextComponent> lexemes = new ArrayList<>();
+    private final List<TextComponent> lexemes = new ArrayList<>();
+
     @Override
     public boolean addTextComponent(TextComponent textComponent) {
-        return this.lexemes.add(textComponent);
+        return lexemes.add(textComponent);
     }
 
     @Override
     public boolean removeTextComponent(TextComponent textComponent) {
-        return this.lexemes.remove(textComponent);
+        return lexemes.remove(textComponent);
     }
 
     @Override
@@ -39,6 +40,10 @@ public class Sentence implements TextComponent {
 
     @Override
     public String toString() {
-        return lexemes + "\\s";
+        StringBuilder stringBuilder = new StringBuilder();
+        for(TextComponent textComponent : lexemes){
+            stringBuilder.append(textComponent).append(" ");
+        }
+        return stringBuilder.toString();
     }
 }

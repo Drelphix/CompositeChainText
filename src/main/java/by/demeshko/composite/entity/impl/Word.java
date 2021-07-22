@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Word implements TextComponent {
-
     private List<TextComponent> textComponents = new ArrayList<>();
+
     @Override
     public boolean addTextComponent(TextComponent textComponent) {
         return this.textComponents.add(textComponent);
@@ -40,6 +40,10 @@ public class Word implements TextComponent {
 
     @Override
     public String toString() {
-        return textComponents + "\\s";
+        StringBuilder stringBuilder = new StringBuilder();
+        for(TextComponent textComponent : textComponents){
+            stringBuilder.append(textComponent);
+        }
+        return stringBuilder.toString();
     }
 }

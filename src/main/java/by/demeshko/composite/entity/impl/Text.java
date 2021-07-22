@@ -41,6 +41,10 @@ public class Text implements TextComponent {
 
     @Override
     public String toString() {
-        return "CurrentText: \\n" + paragraphs;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (TextComponent textComponent : this.paragraphs){
+            stringBuilder.append("\\t").append(textComponent).append("\\n");
+        }
+        return stringBuilder.toString();
     }
 }

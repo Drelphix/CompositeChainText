@@ -7,14 +7,14 @@ import by.demeshko.composite.parser.TextComponentParser;
 
 public class ParagraphParser implements TextComponentParser {
     private TextComponentParser nextParser;
-    private final String PARAGRAPH_SPLIT_REGEX = "(\\s{4})||\\t";
+    private final String PARAGRAPH_SPLIT_REGEX = "^\\s{4}|\\t|\\n";
 
     public ParagraphParser(TextComponentParser nextParser) {
         this.nextParser = nextParser;
     }
 
     @Override
-    public void setNextParser(TextComponentParser textComponentParser) {
+    public void setFirstParser(TextComponentParser textComponentParser) {
         this.nextParser = textComponentParser;
     }
 
@@ -22,9 +22,11 @@ public class ParagraphParser implements TextComponentParser {
     public void parse(TextComponent textComponent, String data) {
         String[] paragraphList = data.split(PARAGRAPH_SPLIT_REGEX);
         for (String paragraph : paragraphList){
-            TextComponent paragraphComponent = new Paragraph();
-            textComponent.addTextComponent(paragraphComponent);
-            nextParser.parse(paragraphComponent, paragraph);
+            if(!paragraph.isEmpty()) {
+                TextComponent paragraphComponent = new Paragraph();
+                textComponent.addTextComponent(paragraphComponent);
+                nextParser.parse(paragraphComponent, paragraph);
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ public class TextComponentParserFactory {
         PunctuationMarkParser punctuationMarkParser = new PunctuationMarkParser();
         LexemeParser lexemeParser = new LexemeParser(wordParser, punctuationMarkParser);
         SentenceParser sentenceParser = new SentenceParser(lexemeParser);
-        ParagraphParser paragraphParser = new ParagraphParser(sentenceParser);
-        return paragraphParser;
+        return new ParagraphParser(sentenceParser);
     }
 }
